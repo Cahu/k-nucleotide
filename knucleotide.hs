@@ -153,7 +153,7 @@ main = do
             vs <- tableToList t
             return $ map (\(k, v) -> (B.unpack (unpackKey len k), freq v)) vs
           where
-            freq v = 100 * fromIntegral v / fromIntegral (B.length s)
+            freq v = 100 * fromIntegral v / fromIntegral (B.length s - len + 1)
 
     let computationsFreq len =
             let l = concat $ runEval $ mapM (rpar . threadWorkFreq len) threads
