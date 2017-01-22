@@ -1,3 +1,4 @@
+```
 time ./knucleotide +RTS -N4 -sstderr -A200M < input25000000.txt
 A 30.295
 T 30.151
@@ -27,12 +28,12 @@ GG 3.902
 893	GGTATTTTAATT
 893	GGTATTTTAATTTATAGT
   70,977,090,552 bytes allocated in the heap
-      22,718,920 bytes copied during GC
-     125,200,872 bytes maximum residency (3 sample(s))
-      26,149,880 bytes maximum slop
-            1464 MB total memory in use (128 MB lost due to fragmentation)
+	  22,718,920 bytes copied during GC
+	 125,200,872 bytes maximum residency (3 sample(s))
+	  26,149,880 bytes maximum slop
+			1464 MB total memory in use (128 MB lost due to fragmentation)
 
-                                     Tot time (elapsed)  Avg pause  Max pause
+									 Tot time (elapsed)  Avg pause  Max pause
   Gen  0        88 colls,    88 par    0.110s   0.041s     0.0005s    0.0113s
   Gen  1         3 colls,     2 par    0.000s   0.001s     0.0002s    0.0002s
 
@@ -60,3 +61,4 @@ gen[1].sync: 2
 real	0m37.539s
 user	2m22.090s
 sys	0m0.667s
+```
