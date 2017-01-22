@@ -145,7 +145,7 @@ main = do
             t <- countOccurrences (length threads) (B.length key) (B.drop tid s)
             getVal t (packKey key)
 
-    let computationsOcc key = sum $ runEval $
+    let calcOcc key = sum $ runEval $
             mapM (rpar . threadWorkOcc (B.pack key)) threads
 
     let threadWorkFreq len tid = runST $ do
@@ -155,17 +155,17 @@ main = do
           where
             freq v = 100 * fromIntegral v / fromIntegral (B.length s - len + 1)
 
-    let computationsFreq len =
+    let calcFreq len =
             let l = concat $ runEval $ mapM (rpar . threadWorkFreq len) threads
                 m = foldr (uncurry $ M.insertWith (+)) M.empty l
             in
                 M.toList m
 
-    let resultsOcc = map (\k -> (k, computationsOcc k)) keys
+    let resultsOcc = map (\k -> (k, calcOcc k)) keys
 
-    printFreq (computationsFreq 1)
+    printFreq (calcFreq 1)
     putStrLn ""
-    printFreq (computationsFreq 2)
+    printFreq (calcFreq 2)
     putStrLn ""
     forM_ resultsOcc $ \(k, r) -> printf "%d\t%s\n" r k
 
