@@ -1,5 +1,7 @@
+[Fastest submission since 2017-01-22!](https://benchmarksgame.alioth.debian.org/u64q/program.php?test=knucleotide&lang=ghc&id=2)
+
 ```
-time ./knucleotide +RTS -N4 -sstderr -A200M < input25000000.txt
+time ./knucleotide +RTS -N -sstderr < input25000000.txt
 A 30.295
 T 30.151
 C 19.800
